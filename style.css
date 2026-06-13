@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+/* ========================================
+   CUSTOM SQUARE CURSOR
+   ======================================== */
+
+.custom-cursor {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    background: #000000;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.15s ease, height 0.15s ease, background 0.15s ease;
+}
+
+.custom-cursor.hover {
+    width: 28px;
+    height: 28px;
+    background: transparent;
+    border: 2px solid #000000;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #cafff0;
+    color: #000000;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* ========================================
+   HEADER - Top Navigation
+   ======================================== */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    background: #cafff0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #000000;
+}
+
+.tagline {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: lowercase;
+    color: #666666;
+    margin-left: 40px;
+}
+
+.time {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #000000;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Navigation avec soulignement dynamique */
+.main-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+    align-self: flex-start;
+    margin-top: 32px;
+}
+
+.nav-link {
+    position: relative;
+    text-decoration: none;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: lowercase;
+    padding: 2px 0;
+    overflow: hidden;
+    line-height: 1.2;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #000000;
+    transform: translateX(-101%);
+    transition: transform 0.4s ease;
+}
+
+.nav-link:hover::after {
+    transform: translateX(0);
+}
+
+.contact-link {
+    text-decoration: none;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: lowercase;
+    position: relative;
+    overflow: hidden;
+    padding: 2px 0;
+}
+
+.contact-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #000000;
+    transform: translateX(-101%);
+    transition: transform 0.4s ease;
+}
+
+.contact-link:hover::after {
+    transform: translateX(0);
+}
+
+/* ========================================
+   MAIN CONTENT - Hero Minimalist
+   ======================================== */
+
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    padding: 0 60px;
+}
+
+.hero-minimal {
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 72px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    line-height: 1.1;
+    color: #000000;
+    text-transform: uppercase;
+}
+
+/* ========================================
+   FOOTER - Projects List
+   ======================================== */
+
+.projects-footer {
+    position: fixed;
+    bottom: 40px;
+    left: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.project-item {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+}
+
+.project-year {
+    font-size: 12px;
+    font-weight: 400;
+    color: #666666;
+    letter-spacing: 1px;
+}
+
+.project-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000000;
+    letter-spacing: 1px;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    padding: 2px 0;
+}
+
+.project-name::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #000000;
+    transform: translateX(-101%);
+    transition: transform 0.4s ease;
+}
+
+.project-name:hover::after {
+    transform: translateX(0);
+}
+
+/* ========================================
+   COPYRIGHT
+   ======================================== */
+
+.copyright {
+    position: fixed;
+    bottom: 40px;
+    right: 60px;
+    font-size: 11px;
+    font-weight: 400;
+    color: #666666;
+    letter-spacing: 1px;
+}
