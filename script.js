@@ -60,11 +60,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     loadingVideo.play();
                 }
                 
-                // Redirect after minimum 2.5s - keep loading screen active during redirect
+                // After video plays, start exit animation and navigate immediately
                 setTimeout(() => {
                     // Set flag to skip loading screen on destination page
                     sessionStorage.setItem('skipLoading', 'true');
-                    // Navigate directly - loading screen stays active during page transition
+                    
+                    // Start exit animation and navigate at the same time
+                    loadingScreen.classList.remove('active');
+                    loadingScreen.classList.add('exit');
+                    
+                    // Navigate immediately - loading screen stays visible during transition
                     window.location.href = target;
                 }, 2500);
             }
