@@ -22,14 +22,92 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Navigation
     const navLinks = document.querySelectorAll('.nav-link, .contact-link, .project-name');
+    const loadingScreen = document.getElementById('loadingScreen');
+    const loadingText = document.getElementById('loadingText');
     
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const target = link.getAttribute('href');
             console.log(`Navigation vers : ${target}`);
+            
+            // Trigger loading screen for page transitions
+            if (target === '#equipe') {
+                // Show loading screen with video
+                loadingScreen.classList.add('active');
+                
+                // Play video and redirect after animation
+                const loadingVideo = document.getElementById('loadingVideo');
+                if (loadingVideo) {
+                    loadingVideo.currentTime = 0;
+                    loadingVideo.play();
+                }
+                
+                // Redirect after video plays (approximately 2-3 seconds)
+                setTimeout(() => {
+                    loadingScreen.classList.remove('active');
+                    loadingScreen.classList.add('exit');
+                    
+                    // Redirect to our-team.html after animation
+                    setTimeout(() => {
+                        window.location.href = 'our-team.html';
+                    }, 600);
+                }, 2500);
+            }
         });
     });
+    
+    // Initial page load - show video preloader
+    const loadingVideo = document.getElementById('loadingVideo');
+    if (loadingScreen && loadingVideo) {
+        // Show loading screen on initial load
+        loadingScreen.classList.add('active');
+        loadingVideo.play();
+        
+        // Track loading state
+        let minTimeElapsed = false;
+        let pageLoaded = false;
+        
+        // Minimum 2.5 seconds display
+        setTimeout(() => {
+            minTimeElapsed = true;
+            checkHideLoading();
+        }, 2500);
+        
+        // Wait for page to be fully loaded
+        if (document.readyState === 'complete') {
+            pageLoaded = true;
+            checkHideLoading();
+        } else {
+            window.addEventListener('load', () => {
+                pageLoaded = true;
+                checkHideLoading();
+            });
+        }
+        
+        function checkHideLoading() {
+            if (minTimeElapsed && pageLoaded && loadingScreen.classList.contains('active')) {
+                loadingScreen.classList.remove('active');
+                loadingScreen.classList.add('exit');
+                
+                setTimeout(() => {
+                    loadingScreen.classList.remove('exit');
+                }, 600);
+            }
+        }
+        
+        // Fallback: hide after 5 seconds maximum
+        setTimeout(() => {
+            if (loadingScreen.classList.contains('active')) {
+                loadingScreen.classList.remove('active');
+                loadingScreen.classList.add('exit');
+                
+                setTimeout(() => {
+                    loadingScreen.classList.remove('exit');
+                }, 600);
+            }
+        }, 5000);
+    }
     
     // ========================================
     // ROTATING TYPEWRITER TEXT EFFECT
@@ -90,27 +168,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Start the typewriter effect
-    typeWriter();
+    // Start the typewriter effect only if element exists
+    if (rotatingTextElement) {
+        typeWriter();
+    }
     
     // ========================================
     // CUSTOM SQUARE CURSOR
     // ========================================
     
     const cursor = document.getElementById('customCursor');
-    const hoverElements = document.querySelectorAll('a, button, .nav-link, .contact-link, .project-name');
     
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-    });
-    
-    hoverElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.classList.add('hover');
+    if (cursor) {
+        const hoverElements = document.querySelectorAll('a, button, .nav-link, .contact-link, .project-name');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
         });
-        el.addEventListener('mouseleave', () => {
-            cursor.classList.remove('hover');
+        
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover');
+            });
         });
-    });
+    }
 });
