@@ -25,15 +25,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadingScreen = document.getElementById('loadingScreen');
     const loadingText = document.getElementById('loadingText');
     
+    // Page routes for navigation with loading screen
+    const pageRoutes = {
+        'our-projects.html': 'our-projects.html',
+        'our-expertise.html': 'our-expertise.html',
+        'our-team.html': 'our-team.html',
+        'contact.html': 'contact.html'
+    };
+    
+    // Flag to prevent initial loading screen from hiding during navigation
+    let isNavigating = false;
+    
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
             const target = link.getAttribute('href');
             console.log(`Navigation vers : ${target}`);
             
-            // Trigger loading screen for page transitions
-            if (target === '#equipe') {
+            // Check if it's a page navigation (not anchor link)
+            if (pageRoutes[target] || target.endsWith('.html')) {
+                e.preventDefault();
+                
+                // Set navigating flag to prevent initial loading screen from hiding
+                isNavigating = true;
+                
                 // Show loading screen with video
+                loadingScreen.style.display = 'flex';
+                loadingScreen.offsetHeight; // Force reflow
                 loadingScreen.classList.add('active');
                 
                 // Play video and redirect after animation
@@ -43,24 +60,26 @@ document.addEventListener('DOMContentLoaded', () => {
                     loadingVideo.play();
                 }
                 
-                // Redirect after video plays (approximately 2-3 seconds)
+                // Redirect after minimum 2.5s - keep loading screen active during redirect
                 setTimeout(() => {
-                    loadingScreen.classList.remove('active');
-                    loadingScreen.classList.add('exit');
-                    
-                    // Redirect to our-team.html after animation
-                    setTimeout(() => {
-                        window.location.href = 'our-team.html';
-                    }, 600);
+                    // Set flag to skip loading screen on destination page
+                    sessionStorage.setItem('skipLoading', 'true');
+                    // Navigate directly - loading screen stays active during page transition
+                    window.location.href = target;
                 }, 2500);
             }
         });
     });
     
-    // Initial page load - show video preloader
+    // Initial page load - show video preloader (skip if coming from internal navigation)
     const loadingVideo = document.getElementById('loadingVideo');
-    if (loadingScreen && loadingVideo) {
+    const skipLoading = sessionStorage.getItem('skipLoading');
+    
+    if (loadingScreen && loadingVideo && !skipLoading) {
         // Show loading screen on initial load
+        loadingScreen.style.display = 'flex';
+        // Force reflow
+        loadingScreen.offsetHeight;
         loadingScreen.classList.add('active');
         loadingVideo.play();
         
@@ -86,27 +105,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         function checkHideLoading() {
-            if (minTimeElapsed && pageLoaded && loadingScreen.classList.contains('active')) {
+            // Don't hide if we're navigating to another page
+            if (minTimeElapsed && pageLoaded && loadingScreen.classList.contains('active') && !isNavigating) {
                 loadingScreen.classList.remove('active');
                 loadingScreen.classList.add('exit');
                 
                 setTimeout(() => {
                     loadingScreen.classList.remove('exit');
+                    // Clear the skip flag after initial load completes
+                    sessionStorage.removeItem('skipLoading');
                 }, 600);
             }
         }
         
-        // Fallback: hide after 5 seconds maximum
+        // Fallback: hide after 5 seconds maximum (only if not navigating)
         setTimeout(() => {
-            if (loadingScreen.classList.contains('active')) {
+            if (loadingScreen.classList.contains('active') && !isNavigating) {
                 loadingScreen.classList.remove('active');
                 loadingScreen.classList.add('exit');
                 
                 setTimeout(() => {
                     loadingScreen.classList.remove('exit');
+                    // Clear the skip flag
+                    sessionStorage.removeItem('skipLoading');
                 }, 600);
             }
         }, 5000);
+    } else if (skipLoading) {
+        // Clear the flag if we skipped loading (coming from internal navigation)
+        sessionStorage.removeItem('skipLoading');
     }
     
     // ========================================
