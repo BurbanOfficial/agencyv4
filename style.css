@@ -8,7 +8,7 @@
 
 @font-face {
     font-family: 'StrawSerif';
-    src: url('fonts/StrawSerifRegular-6YOWM.ttf') format('truetype');
+    src: url('fonts/StrawSerifRegular-6YOWM.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -36,6 +36,14 @@
     transition: width 0.15s ease, height 0.15s ease, background 0.15s ease;
 }
 
+.custom-cursor.on-dark {
+    background: #f4edde;
+}
+
+.custom-cursor.on-dark.hover {
+    border-color: #f4edde;
+}
+
 .custom-cursor.hover {
     width: 28px;
     height: 28px;
@@ -43,13 +51,17 @@
     border: 2px solid #000000;
 }
 
+html {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 body {
     font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 300;
     background-color: #f4edde;
     color: #000000;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: visible;
     min-height: 100vh;
 }
 
@@ -76,7 +88,6 @@ body {
     justify-content: space-between;
     height: 150px;
     padding: 0 60px;
-    background: #f4edde;
 }
 
 .logo {
@@ -184,6 +195,12 @@ body {
 }
 
 .hero-minimal {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
@@ -201,12 +218,13 @@ body {
    ======================================== */
 
 .projects-footer {
-    position: fixed;
+    position: absolute;
     bottom: 40px;
-    left: 60px;
+    left: 0;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    z-index: 50;
 }
 
 .project-item {

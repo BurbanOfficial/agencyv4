@@ -167,6 +167,12 @@ document.addEventListener('DOMContentLoaded', () => {
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
         });
+
+        const footer = document.querySelector('.site-footer');
+        if (footer) {
+            footer.addEventListener('mouseenter', () => cursor.classList.add('on-dark'));
+            footer.addEventListener('mouseleave', () => cursor.classList.remove('on-dark'));
+        }
         
         hoverElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
