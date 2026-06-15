@@ -9,13 +9,13 @@
 <body>
     <div class="custom-cursor" id="customCursor"></div>
     
-    <!-- Loading Screen Video -->
-    <div class="loading-screen" id="loadingScreen">
-        <video class="loading-video" autoplay muted playsinline id="loadingVideo">
-            <source src="videos/CARBON.mp4" type="video/mp4">
-        </video>
+    <!-- Page Transition Screen -->
+    <div class="transition-screen" id="transitionScreen">
+        <span class="transition-logo">CARBON.</span>
     </div>
+    <script>document.getElementById('transitionScreen').classList.add('enter');</script>
     
+    <div class="header-clip">
     <header class="header">
         <div class="logo">CARBON.</div>
         <div class="tagline">communication digitale et développement Web</div>
@@ -27,8 +27,11 @@
         </nav>
         <a href="contact.html" class="contact-link">contact</a>
     </header>
+    </div>
 
     <main class="main-content expertise-page">
+
+        <!-- INTRO -->
         <section class="expertise-section">
             <h2 class="expertise-title">Notre expertise en stratégie de communication et développement scientifique du Web.</h2>
             
@@ -41,18 +44,291 @@
                 <div class="expertise-list">
                     <h3 class="expertise-list-title">Toutes nos expertises</h3>
                     <ul class="expertise-items">
-                        <li>Stratégie Communicationnelles</li>
-                        <li>Design d'expériences et d'interfaces</li>
-                        <li>Edition & Packaging</li>
-                        <li>Copywritting</li>
-                        <li>Contenu promotionnel</li>
+                        <li><a href="#design" class="expertise-anchor">Design d'expériences et d'interfaces</a></li>
+                        <li><a href="#edition" class="expertise-anchor">Edition & Packaging</a></li>
+                        <li><a href="#copywriting" class="expertise-anchor">Copywritting</a></li>
+                    </ul>
+
+                    <h3 class="expertise-list-title" style="margin-top: 36px;">Ressources</h3>
+                    <ul class="expertise-items">
+                        <li><a href="#faq" class="expertise-anchor">FAQ</a></li>
                     </ul>
                 </div>
             </div>
         </section>
+
+        <!-- IMAGE PLEINE LARGEUR -->
+        <div class="expertise-fullwidth-img">
+            <img src="" alt="Carbon — Design d'expériences">
+        </div>
+
+        <!-- SECTION 2 — Design d'expériences et d'interfaces -->
+        <section class="exp-detail-section" id="design">
+            <div class="exp-detail-inner">
+                <div class="exp-detail-left">
+                    <span class="exp-detail-label">Votre agence de communication digitale</span>
+                    <p class="exp-detail-headline">Concevoir des expériences digitales pensées pour vos utilisateurs ça revient à accorder de l'importance à chaque détail afin de rendre chaque interaction plus simple, plus fluide et plus pertinente.</p>
+                    <a href="#" class="exp-detail-more">En savoir plus</a>
+                </div>
+                <div class="exp-detail-right">
+                    <p class="exp-detail-intro">De l'architecture de l'information à l'interface finale, nous veillons à créer des parcours intuitifs, accessibles et cohérents, capables d'améliorer l'engagement et de répondre efficacement aux besoins de vos utilisateurs.</p>
+
+                    <div class="exp-service">
+                        <a href="#" class="exp-service-title">UX Design</a>
+                        <p class="exp-service-desc">Arborescences, wireframes, parcours utilisateurs. Nous concevons des expériences fluides, accessibles et adaptées à votre activité.</p>
+                    </div>
+
+                    <div class="exp-service">
+                        <a href="#" class="exp-service-title">UI Design</a>
+                        <p class="exp-service-desc">Maquettes graphiques desktop / mobile, sites vitrines, e-commerce, etc. Nous habillons vos plateformes d'une identité visuelle forte, pensée pour séduire et guider vos utilisateurs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMAGE PLEINE LARGEUR -->
+        <div class="expertise-fullwidth-img">
+            <img src="" alt="Carbon — Edition & Packaging">
+        </div>
+
+        <!-- SECTION 3 — Edition & Packaging -->
+        <section class="exp-detail-section" id="edition">
+            <div class="exp-detail-inner">
+                <div class="exp-detail-left">
+                    <span class="exp-detail-label">Print Design</span>
+                    <p class="exp-detail-headline">Chaque support, imprimé ou digital, est une occasion de valoriser votre identité de marque et de renforcer votre visibilité auprès de vos audiences.</p>
+                    <a href="#" class="exp-detail-more">En savoir plus</a>
+                </div>
+                <div class="exp-detail-right">
+                    <p class="exp-detail-intro">Paper is still powerful. Une belle conception, de beaux matériaux et une exécution soignée font toute la différence.</p>
+                    <div class="exp-service">
+                        <a href="#" class="exp-service-title">Supports de communication</a>
+                        <p class="exp-service-desc">Brochures, flyers, catalogues et autres supports imprimés. Nous concevons des outils de communication qui valorisent votre image et transmettent vos messages avec clarté.</p>
+                    </div>
+                    <div class="exp-service">
+                        <a href="#" class="exp-service-title">Habillage de packaging</a>
+                        <p class="exp-service-desc">Conceptions de packaging adaptés à votre activité, création d'éditions limitées, et bien d'autres. Nous valorisons vos produits grâce à des packaging visuels qui traduisent votre identité, et suscitent le désir.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMAGE PLEINE LARGEUR -->
+        <div class="expertise-fullwidth-img">
+            <img src="" alt="Carbon — Copywriting">
+        </div>
+
+        <!-- SECTION 4 — Copywriting -->
+        <section class="exp-detail-section" id="copywriting">
+            <div class="exp-detail-inner">
+                <div class="exp-detail-left">
+                    <span class="exp-detail-label">Words build brands</span>
+                    <p class="exp-detail-headline">Le choix des mots permet de guider le cerveau humain, de créer de l'émotion et ces éléments permettent de déclencher de l'action. Chez CARBON. nous écrivons des contenus puissants qui traduisent votre identité, clarifient vos messages et donnent de la force à votre prise de parole, quel que soit le support.</p>
+                    <a href="#" class="exp-detail-more">En savoir plus</a>
+                </div>
+                <div class="exp-detail-right">
+                    <p class="exp-detail-intro">Words that work. Chaque mot compte. Nous concevons des textes clairs, justes et impactants, pensés pour capter l'attention, guider la lecture et renforcer la compréhension de votre message.</p>
+                    <div class="exp-service">
+                        <a href="#" class="exp-service-title">Communication & campagnes</a>
+                        <p class="exp-service-desc">Accroches, slogans, campagnes publicitaires, scripts et contenus social media. Nous créons des messages qui marquent, s'adaptent aux formats et renforcent votre impact.</p>
+                    </div>
+                    <div class="exp-service">
+                        <a href="#" class="exp-service-title">Contenus web & digital</a>
+                        <p class="exp-service-desc">Pages web, landing pages, interfaces, newsletters ou campagnes digitales. Nous écrivons des contenus optimisés pour l'expérience utilisateur, la lisibilité et la performance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMAGE PLEINE LARGEUR -->
+        <div class="expertise-fullwidth-img">
+            <img src="" alt="Carbon — Contenu promotionnel">
+        </div>
+
+        <!-- FAQ -->
+        <section class="faq-section" id="faq">
+            <h2 class="faq-title">Parce que vous vous posez sûrement la question...</h2>
+            <div class="faq-list">
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Pourquoi faire appel à une agence de stratégie digitale et développement web ?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Parce qu'un site web ne se limite pas à une vitrine. Une agence, telle que CARBON., combine stratégie, design et développement pour créer une expérience cohérente, performante et pensée pour convertir vos visiteurs en Clients.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Comment le design d'expérience et d'interface améliore-t-il la performance d'un site web ?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Un bon UX/UI rend la navigation plus fluide, réduit les frictions et guide naturellement l'utilisateur vers l'action. Résultat : une meilleure compréhension de l'offre et une augmentation des conversions.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Pourquoi structurer ses parcours utilisateurs (arborescences, wireframes) est-il essentiel ?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Parce qu'une structure claire permet de rendre l'information accessible, logique et intuitive. Cela facilite la navigation et améliore directement l'expérience globale sur le site.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Quel est le rôle du print et du packaging dans une stratégie de marque globale ?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Le print et le packaging prolongent l'expérience de marque dans le monde physique. Ils renforcent l'identité visuelle, créent de la mémorisation et donnent une dimension tangible à la communication.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Pourquoi le copywriting est-il essentiel dans une stratégie de communication digitale ?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Parce que les mots orientent la perception et influencent les décisions. Un bon copywriting clarifie le message, capte l'attention et transforme une identité de marque en discours impactant et engageant.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Comment une stratégie de communication globale renforce-t-elle la cohérence d'une marque ?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>En alignant tous les supports — web, print, contenu, design — autour d'une même vision. Cette cohérence renforce la crédibilité, la reconnaissance et l'impact global de la marque.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="cta-section" id="cta">
+            <a href="contact.html" class="cta-link">
+                <span class="cta-text">Vous avez un projet en tête ?</span>
+                <div class="cta-cursor">Let's<br>talk!</div>
+            </a>
+        </section>
+
+        <!-- SECTION CARBONE — Projets -->
+        <section class="projects-showcase">
+            <div class="projects-showcase-header">
+                <h2 class="projects-showcase-title">Quelques projets que nous avons réalisés.</h2>
+            </div>
+            <div class="projects-carousel-wrapper">
+                <div class="projects-carousel" id="projectsCarousel">
+                    <div class="carousel-item">
+                        <div class="carousel-img-wrap">
+                            <img src="" alt="Projet 1">
+                        </div>
+                        <div class="carousel-info">
+                            <span class="carousel-brand">Burban</span>
+                            <span class="carousel-tags">UI Design · Copywriting</span>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-img-wrap">
+                            <img src="" alt="Projet 2">
+                        </div>
+                        <div class="carousel-info">
+                            <span class="carousel-brand">Axl Std.</span>
+                            <span class="carousel-tags">UX Design · Edition & Packaging</span>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-img-wrap">
+                            <img src="" alt="Projet 3">
+                        </div>
+                        <div class="carousel-info">
+                            <span class="carousel-brand">Projet 3</span>
+                            <span class="carousel-tags">Stratégie · UI Design</span>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-img-wrap">
+                            <img src="" alt="Projet 4">
+                        </div>
+                        <div class="carousel-info">
+                            <span class="carousel-brand">Projet 4</span>
+                            <span class="carousel-tags">Copywriting · Contenu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <div class="copyright">© <span id="copyrightYear">2026</span> Carbon.</div>
+    <footer class="site-footer">
+        <div class="footer-inner">
+
+            <!-- COL 1 — Brand + newsletter -->
+            <div class="footer-col footer-col-brand">
+                <div class="footer-logo">CARBON.</div>
+                <p class="footer-baseline">Communication digitale<br>et développement web.</p>
+                <form class="footer-newsletter" id="footerNewsletter">
+                    <label class="footer-newsletter-label">Newsletter</label>
+                    <div class="footer-newsletter-row">
+                        <input type="email" placeholder="votre@email.com" class="footer-newsletter-input" required>
+                        <button type="submit" class="footer-newsletter-btn">→</button>
+                    </div>
+                    <p class="footer-newsletter-success" id="footerNewsletterSuccess"></p>
+                </form>
+            </div>
+
+            <!-- COL 2 — Contact + horaires -->
+            <div class="footer-col footer-col-contact">
+                <h4 class="footer-col-title">Contact</h4>
+                <a href="mailto:contact@carbon.com" class="footer-contact-link">contact@carbon.com</a>
+                <div class="footer-phone-wrap">
+                    <button class="footer-phone-btn" id="footerPhoneBtn">Révéler le numéro</button>
+                    <span class="footer-phone-number" id="footerPhoneNumber" style="display:none;">+33 7 76 69 16 06</span>
+                </div>
+                <div class="footer-hours">
+                    <span class="footer-status-dot" id="footerStatusDot"></span>
+                    <span class="footer-status-label" id="footerStatusLabel"></span>
+                </div>
+                <p class="footer-schedule">Lun – Sam &nbsp;·&nbsp; 9h – 18h</p>
+            </div>
+
+            <!-- COL 3 — Navigation -->
+            <div class="footer-col footer-col-nav">
+                <h4 class="footer-col-title">Navigation</h4>
+                <ul class="footer-nav-list">
+                    <li><a href="our-projects.html" class="footer-nav-link">Nos réalisations</a></li>
+                    <li><a href="our-expertise.html" class="footer-nav-link">Nos expertises</a></li>
+                    <li><a href="our-team.html" class="footer-nav-link">Notre équipe</a></li>
+                    <li><a href="contact.html" class="footer-nav-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- COL 4 — Actions + réseaux -->
+            <div class="footer-col footer-col-actions">
+                <h4 class="footer-col-title">Envie de nous rejoindre ?</h4>
+                <a href="contact.html" class="footer-action-link">Un projet ? Discutons ensemble →</a>
+                <a href="#" class="footer-action-link">Déposer une candidature →</a>
+                <div class="footer-social">
+                    <a href="#" class="footer-social-link" target="_blank" rel="noopener">Instagram</a>
+                    <a href="#" class="footer-social-link" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <span>© <span id="copyrightYear">2026</span> Carbon. Tous droits réservés.</span>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

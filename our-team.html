@@ -9,13 +9,13 @@
 <body>
     <div class="custom-cursor" id="customCursor"></div>
     
-    <!-- Loading Screen Video -->
-    <div class="loading-screen" id="loadingScreen">
-        <video class="loading-video" autoplay muted playsinline id="loadingVideo">
-            <source src="videos/CARBON.mp4" type="video/mp4">
-        </video>
+    <!-- Page Transition Screen -->
+    <div class="transition-screen" id="transitionScreen">
+        <span class="transition-logo">CARBON.</span>
     </div>
+    <script>document.getElementById('transitionScreen').classList.add('enter');</script>
     
+    <div class="header-clip">
     <header class="header">
         <div class="logo">CARBON.</div>
         <div class="tagline">communication digitale et développement Web</div>
@@ -27,6 +27,7 @@
         </nav>
         <a href="contact.html" class="contact-link">contact</a>
     </header>
+    </div>
 
     <main class="main-content team-page">
         <section class="team-section">
@@ -57,7 +58,56 @@
         </section>
     </main>
 
-    <div class="copyright">© <span id="copyrightYear">2026</span> Carbon.</div>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col footer-col-brand">
+                <div class="footer-logo">CARBON.</div>
+                <p class="footer-baseline">Communication digitale<br>et développement web.</p>
+                <form class="footer-newsletter" id="footerNewsletter">
+                    <label class="footer-newsletter-label">Newsletter</label>
+                    <div class="footer-newsletter-row">
+                        <input type="email" placeholder="votre@email.com" class="footer-newsletter-input" required>
+                        <button type="submit" class="footer-newsletter-btn">→</button>
+                    </div>
+                    <p class="footer-newsletter-success" id="footerNewsletterSuccess"></p>
+                </form>
+            </div>
+            <div class="footer-col footer-col-contact">
+                <h4 class="footer-col-title">Contact</h4>
+                <a href="mailto:contact@carbon.com" class="footer-contact-link">contact@carbon.com</a>
+                <div class="footer-phone-wrap">
+                    <button class="footer-phone-btn" id="footerPhoneBtn">Révéler le numéro</button>
+                    <span class="footer-phone-number" id="footerPhoneNumber" style="display:none;">+33 7 76 69 16 06</span>
+                </div>
+                <div class="footer-hours">
+                    <span class="footer-status-dot" id="footerStatusDot"></span>
+                    <span class="footer-status-label" id="footerStatusLabel"></span>
+                </div>
+                <p class="footer-schedule">Lun – Sam &nbsp;·&nbsp; 9h – 18h</p>
+            </div>
+            <div class="footer-col footer-col-nav">
+                <h4 class="footer-col-title">Navigation</h4>
+                <ul class="footer-nav-list">
+                    <li><a href="our-projects.html" class="footer-nav-link">Nos réalisations</a></li>
+                    <li><a href="our-expertise.html" class="footer-nav-link">Nos expertises</a></li>
+                    <li><a href="our-team.html" class="footer-nav-link">Notre équipe</a></li>
+                    <li><a href="contact.html" class="footer-nav-link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-col-actions">
+                <h4 class="footer-col-title">Envie de nous rejoindre ?</h4>
+                <a href="contact.html" class="footer-action-link">Un projet ? Discutons ensemble →</a>
+                <a href="#" class="footer-action-link">Déposer une candidature →</a>
+                <div class="footer-social">
+                    <a href="#" class="footer-social-link" target="_blank" rel="noopener">Instagram</a>
+                    <a href="#" class="footer-social-link" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© <span id="copyrightYear">2026</span> Carbon. Tous droits réservés.</span>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
